@@ -1,0 +1,664 @@
+## EXISTING FILE
+# All translations in this file are community made, this means there may be errors / missed translations, if you are able to improve upon any translation it would be greatly appreciated
+
+# Able to help with translations? Either improving a already existing language, or adding a whole new one. Join the discord server: https://discord.gg/JF9DNs3 
+# or message me on spigot: https://www.spigotmc.org/members/booksaw123.120955/
+
+# Any placeholders from placeholder API will work in this file
+
+# Credit for contributions to this file: Duplon, Edekoo, Guaz, Kuszaa, Rain
+
+invalidArg: '&4Nieprawidłowe argumenty, użyj pomocy'
+inTeam: '&4Musisz być w drużynie, aby to zrobić'
+internalError: '&4Coś poszło nie tak podczas wykonywania komendy, zgłoś to administracji'
+notInTeam: '&4Musisz opuścić obecną drużynę, zanim to zrobisz'
+needOwner: '&4Musisz być właścicielem drużyny, aby to zrobić'
+needAdmin: '&4Musisz być adminem lub właścicielem drużyny, aby to zrobić'
+needPlayer: '&4Tylko gracz może wykonać tę komendę'
+noPlayer: '&4Nie znaleziono podanego gracza'
+notTeam: '&4Ta drużyna nie istnieje. Spróbuj &b/team create <nazwa>'
+needSameTeam: '&6Nie jesteś w tej samej drużynie co ta osoba'
+noPerm: '&4Nie masz uprawnień do wykonania tej czynności'
+prefixSyntax: '&7[{0}&7] &r{1}'
+bannedChar: '&4Użyto niedozwolonego znaku'
+noTeam: '&4Taka drużyna nie istnieje'
+loading: '&6Ładowanie...'
+cooldown:
+  wait: '&4Musisz odczekać jeszcze &b{0} &4sekund przed ponownym użyciem!'
+cost:
+  tooPoor: '&4Nie masz wystarczająco pieniędzy, potrzebujesz &b{0}'
+  run: '&4&l-{0}'
+placeholder:
+  noTeam: ''
+  noMeta: ''
+  noDescription: ''
+  money: '{0}'
+  owner: Właściciel
+  admin: Admin
+  default: Członek
+  name: '{0}'
+  tag: '{0}'
+  displayname: '{0}'
+  inteam: 'true'
+  notinteam: 'false'
+  noTitle: ''
+  hasHome: 'true'
+  noHome: 'false'
+  teamChat: Czat Drużyny
+  globalChat: Czat Globalny
+  allyChat: Czat Sojuszu
+prefix:
+  owner: ' **'
+  admin: ' *'
+  default: ' '
+create:
+  exists: '&6Taka drużyna już istnieje'
+  success: '&6Twoja drużyna &b{0} &6została utworzona'
+  banned: '&4Ta nazwa drużyny jest zablokowana'
+  maxLength: '&4Nazwa drużyny jest za długa'
+  minLength: '&4Nazwa drużyny jest za krótka'
+leave:
+  success: '&6Opuściłeś drużynę'
+  lastOwner: '&6Jesteś jedynym właścicielem. Awansuj kogoś innego lub użyj &b/team
+    disband&6, aby rozwiązać drużynę.'
+announce:
+  join: '&3{0} &7dołączył do drużyny {1}'
+  leave: '&3{0} &7opuścił drużynę {1}'
+  disband: '&7Drużyna &b{0} &7została rozwiązana'
+rank:
+  noTeam: '&4Nie znaleziono drużyny'
+  info: '&6Pozycja drużyny:'
+  infos: '&6Ranga drużyny: &b{0} &7(Potrzeba {1} punktów do następnej rangi)'
+  infom: '&6Ranga drużyny: &b{0} &7(Potrzeba ${1} do następnej rangi)'
+  infomm: '&6Ranga drużyny: &b{0} &7(Osiągnięto maksymalną rangę)'
+  syntax: '&b{0}: &6{1} &7({2})'
+  perks:
+    header: '&6&lBonusy następnego poziomu:'
+    warps: '&7- &a+{0} &7Maks. Punktów Warp'
+    members: '&7- &a+{0} &7Maks. Członków'
+    chests: '&7- &a+{0} &7Maks. Zablokowanych Skrzyń'
+    bank: '&7- &aZwiększony limit banku (&e${0}&a)'
+    admins: '&7- &a+{0} &7Maks. Administratorów'
+    owners: '&7- &a+{0} &7Maks. Właścicieli'
+delhome:
+  success: '&6Dom drużyny został usunięty'
+  noHome: '&4Twoja drużyna nie ma ustawionego domu'
+disband:
+  success: '&6Rozwiązałeś drużynę'
+  warning: '&4Wszystkie przedmioty w &bechest &4oraz pieniądze w &bbanku drużynowym
+    &4zostaną usunięte'
+  confirm: '&6Wpisz &b/team disband &6ponownie, aby potwierdzić'
+description:
+  success: '&6Zmieniono opis drużyny'
+  view: '&6Opis drużyny: &b{0}'
+  noDesc: '&6Brak ustawionego opisu drużyny'
+  noPerm: '&4Nie masz uprawnień do edycji opisu'
+name:
+  success: '&6Zmieniono nazwę drużyny'
+  view: '&6Nazwa drużyny: &b{0}'
+  exists: '&4Drużyna o takiej nazwie już istnieje'
+  noPerm: '&4Nie masz uprawnień do zmiany nazwy drużyny'
+invite:
+  success: '&6Gracz został zaproszony'
+  invite: '&6Zostałeś zaproszony do drużyny &b{0}&6. Wpisz &b/team join {0}&6, aby
+    dołączyć'
+  hover: '&6Kliknij, aby dołączyć do &b{0}'
+  inTeam: '&6Ten gracz jest już w drużynie'
+  banned: '&6Ten gracz jest zablokowany w Twojej drużynie'
+  full: '&6Twoja drużyna osiągnęła maksymalny rozmiar'
+  expired: '&4Zaproszenie od &b{0} &4wygasło'
+join:
+  success: '&6Dołączyłeś do drużyny'
+  notify: '&6Witamy &b{0} &6w drużynie!'
+  notInvited: '&4Nie masz zaproszenia do tej drużyny'
+  banned: '&4Jesteś zablokowany w tej drużynie'
+  full: '&4Ta drużyna jest pełna'
+open:
+  successopen: '&6Twoja drużyna jest teraz otwarta dla wszystkich'
+  successclose: '&6Twoja drużyna jest teraz tylko na zaproszenie'
+title:
+  change: '&6Twój tytuł został zmieniony na &b{0}'
+  remove: '&6Twój tytuł został usunięty'
+  success: '&6Tytuł został zmieniony'
+  tooLong: '&4Ten tytuł jest za długi'
+  noFormat: '&4Nie masz uprawnień do formatowania tytułów'
+  noColor: '&4Nie masz uprawnień do kolorowania tytułów'
+  reset: '&6Twój tytuł został zresetowany'
+  noPerm: '&4Nie masz uprawnień do zmiany tytułu drużynowego'
+info:
+  needTeam: '&6Nie znaleziono drużyny ani gracza o tej nazwie'
+  name: '&6Nazwa: &b{0}'
+  description: '&6Opis: &b{0}'
+  open: '&6Otwarta: &b{0}'
+  level: '&6Poziom: &b{0}'
+  owner: '&6Właściciele: &b{0}'
+  admin: '&6Admini: &b{0}'
+  default: '&6Członkowie: &b{0}'
+  tag: '&6Tag: &b{0}'
+  anchor: '&6Kotwica: &b{0}'
+  fail: '&6Nie znaleziono drużyny ani gracza o tej nazwie'
+  score: '&6Punkty: &b{0}'
+  money: '&6Saldo: &b{0}'
+  ally: '&6Sojusznicy: &b{0}'
+  online: '&a'
+  offline: '&c'
+  onlinePlayer: <green>{0}</green>
+  offlinePlayer: <red>{0}</red>
+  playerListSpace: ' '
+  limits: '&6Limity: &7Członkowie &b{0}/{1} &7| &7Warpy &b{2}/{3}'
+kick:
+  success: '&6Gracz został wyrzucony z drużyny'
+  notify: '&6Zostałeś wyrzucony z drużyny &b{0}'
+  title: '&4Zostałeś wyrzucony ze swojej drużyny'
+  noPerm: '&6Nie masz uprawnień do wyrzucenia tej osoby'
+ban:
+  success: '&6Gracz został zablokowany'
+  notify: '&6Zostałeś zablokowany w drużynie &b{0}'
+  title: '&4Zostałeś zablokowany w swojej drużynie'
+  noPerm: '&6Nie masz uprawnień do zablokowania tej osoby'
+  already: '&6Ten gracz jest już zablokowany'
+unban:
+  success: '&6Gracz został odblokowany'
+  notify: '&6Zostałeś odblokowany w drużynie &b{0}'
+  noPerm: '&6Nie masz uprawnień do odblokowania tej osoby'
+  not: '&6Ten gracz nie jest zablokowany'
+promote:
+  success: '&6Gracz został awansowany'
+  noPerm: '&6Nie masz uprawnień do awansowania tej osoby'
+  max: '&6Ta osoba ma już najwyższą możliwą rangę!'
+  notify: '&6Zostałeś awansowany!'
+  maxAdmins: '&4Twoja drużyna ma już maksymalną liczbę adminów'
+  maxOwners: '&4Twoja drużyna ma już maksymalną liczbę właścicieli'
+demote:
+  success: '&6Gracz został zdegradowany'
+  noPerm: '&6Nie masz uprawnień do degradacji tej osoby'
+  min: '&6Ta osoba ma już najniższą rangę'
+  notify: '&6Zostałeś zdegradowany'
+  lastOwner: '&6Nie możesz zdegradować ostatniego właściciela'
+  maxAdmins: '&4Twoja drużyna ma maksymalną ilość administratorów,zdegraduj lub awanasuj
+    kogoś w drużynie'
+home:
+  success: '&6Zostałeś przeteleportowany do domu drużyny'
+  noHome: '&6Twoja drużyna nie ustawiła domu'
+  world: '&4Nie można odnaleźć świata domu drużyny'
+sethome:
+  success: '&6Dom drużyny został ustawiony'
+  noPerm: '&6Masz za niską rangę, aby ustawić dom drużyny'
+anchor:
+  enabled: '&6Włączono odradzanie się w domu drużyny'
+  disabled: '&6Wyłączono odradzanie się w domu drużyny'
+  noHome: '&6Musisz mieć ustawiony dom i włączoną kotwicę'
+setanchor:
+  enabled: '&6Kotwica drużynowa włączona'
+  disabled: '&6Kotwica drużynowa wyłączona'
+  notifyEnable: '&6Kotwica drużynowa została włączona przez &b{0}'
+  notifyDisable: '&6Kotwica drużynowa została wyłączona przez &b{0}'
+  noHome: '&4Najpierw musisz ustawić dom drużyny'
+  noPerm: '&4Nie masz uprawnień do zmiany stanu kotwicy'
+  noBool: '&4Stan kotwicy może być tylko true (prawda) lub false (fałsz)'
+chat:
+  enabled: '&6Twoje wiadomości trafiają teraz na czat drużynowy'
+  disabled: '&6Twoje wiadomości trafiają teraz na czat globalny'
+  syntax: '&b[Drużyna]&f{0}&f: {1}'
+color:
+  success: '&6Kolor drużyny został zmieniony'
+  fail: '&6To nie jest rozpoznawalny kolor czatu'
+  banned: '&4Ten kod koloru jest zablokowany'
+deposit:
+  tooLittle: '&4Nie możesz wpłacić ujemnej kwoty'
+  fail: '&4Wpłata nie powiodła się'
+  success: '&6Pieniądze zostały wpłacone'
+  max: '&4To przekroczyłoby maksymalny balans Twojej drużyny'
+withdraw:
+  tooLittle: '&4Nie możesz wypłacić ujemnej kwoty'
+  fail: '&4Wypłata nie powiodła się'
+  success: '&6Pieniądze zostały wypłacone'
+  notEnough: '&6Twoja drużyna nie ma tyle pieniędzy'
+ally:
+  already: '&4Jesteście już sojusznikami'
+  success: '&6Wasze drużyny są teraz sojusznikami'
+  ally: '&6Twoja drużyna jest teraz w sojuszu z &b{0}'
+  ally_title: '&6Sojusz z &b{0}'
+  requested: '&6Prośba o sojusz została wysłana'
+  request: '&b{0} &6wysłał prośbę o sojusz. Użyj &b/team ally {0}&6, aby zaakceptować'
+  self: '&4Nie możesz zawrzeć sojuszu z własną drużyną'
+  from: '&6Masz prośby o sojusz od: &b{0}'
+  noRequests: '&4Nie masz żadnych próśb o sojusz'
+  onJoin: '&6Masz nowe prośby o sojusz, wpisz &b/team ally&6, aby je zobaczyć'
+  limit: '&4Osiągnięto limit sojuszników'
+  alreadyrequest: '&4Wysłałeś już prośbę o sojusz do tej drużyny'
+allychat:
+  disabled: '&6Twoje wiadomości nie trafiają już na czat sojuszu'
+  enabled: '&6Twoje wiadomości trafiają teraz na czat sojuszu'
+  syntax: '&d[Sojusz] {0}&f: {1}'
+neutral:
+  self: '&6To Twoja własna drużyna'
+  requestremove: '&6Prośba o sojusz została wycofana'
+  reject: '&4Twoja prośba o sojusz z &b{0} &4została odrzucona'
+  notAlly: '&4Nie jesteś w sojuszu z tą drużyną'
+  success: '&4Nie jesteście już sojusznikami'
+  remove: '&4Sojusz z &b{0} &4został zerwany'
+  remove_title: '&4Sojusz z &b{0} &4zerwany'
+list:
+  noPage: '&6Nie znaleziono takiej strony'
+  header: '&7--- &bLista drużyn, strona {0} &7---'
+  body: '&6{0}: &b{1}'
+  footer: '&7--- &6wpisz &b/team list [strona] &6by zobaczyć więcej &7---'
+setowner:
+  use: '&6Nie możesz awansować tego gracza. Użyj &b/team setowner <gracz>&6, aby mianować
+    go właścicielem'
+  success: '&6Ten gracz jest teraz właścicielem'
+  notify: '&6Jesteś teraz właścicielem drużyny'
+  max: '&4Ten gracz jest już właścicielem'
+setwarp:
+  exist: '&4Taki warp już istnieje'
+  max: '&4Twoja drużyna osiągnęła maksymalną liczbę warpów'
+  success: '&6Warp został utworzony'
+  char: '&4Nazwa warpu zawiera niedozwolone znaki'
+warp:
+  nowarp: '&4Taki warp nie istnieje'
+  invalidPassword: '&4Nieprawidłowe hasło do tego warpu'
+  success: '&6Zostałeś przeteleportowany'
+  world: '&4Nie można odnaleźć lokalizacji tego warpu'
+warps:
+  syntax: '&6Warpy: &b{0}'
+  none: '&4Twoja drużyna nie ma ustawionych żadnych warpów'
+delwarp:
+  success: '&4Warp został usunięty'
+teleport:
+  fail: '&4Teleportacja nie powiodła się'
+  wait: '&6Nie ruszaj się przez &b{0} &6sekund, aby się przeteleportować'
+  bypass: '&6Dzięki swoim uprawnieniom omijasz czas oczekiwania na teleportację!'
+  noTeleport: '&6Lokalizacja znajduje się w świecie &b{0} &6na &b{1}, {2}, {3}'
+chest:
+  claim:
+    noChest: '&4Nie stoisz na skrzyni'
+    limit: '&4Twoja drużyna osiągnęła limit zabezpieczonych skrzyń'
+    claimed: '&4Ta skrzynia jest już zabezpieczona'
+    success: '&6Zabezpieczyłeś tę skrzynię dla swojej drużyny'
+  remove:
+    noChest: '&4Nie stoisz na skrzyni'
+    notClaimed: '&4Twoja drużyna nie posiada tej skrzyni'
+    success: '&4Twoja drużyna nie posiada już tej skrzyni'
+  all:
+    success: '&6Odbezpieczono wszystkie skrzynie'
+  claimed: '&4Ta skrzynia jest zabezpieczona przez &a{0}'
+  check:
+    self: '&6Twoja drużyna posiada tę skrzynię'
+    notClaimed: '&6Ta skrzynia nie jest zabezpieczona'
+    claimed: '&6Ta skrzynia jest zabezpieczona przez &a{0}'
+echest:
+  echest: Enderchest
+pvp:
+  enabled: '&6PvP zostało &bwłączone &6dla Twojej drużyny'
+  disabled: '&6PvP zostało &bwyłączone &6dla Twojej drużyny'
+rankup:
+  max: '&4Masz już maksymalną rangę'
+  score: '&4Potrzebujesz &a{0} &4punktów, aby awansować'
+  money: '&4Potrzebujesz &a{0} &4pieniędzy w banku drużyny, aby awansować'
+  success: '&6Twoja drużyna awansowała na wyższy poziom!'
+tag:
+  banned: '&4Ten tag jest zablokowany'
+  success: '&6Tag drużyny został zmieniony'
+  maxLength: '&4Ten tag jest za długi'
+  noPerm: '&4Nie masz uprawnień do zmiany tagu drużyny'
+admin:
+  cancel: '&4Komenda została anulowana przez inny plugin'
+  tag:
+    success: '&6Tag drużyny został pomyślnie zmieniony'
+  setrank:
+    success: '&6Ranga drużyny została ustawiona'
+    'no': '&4Ta ranga nie istnieje lub jest błędnie skonfigurowana'
+  config:
+    reload: '&6BetterTeams został przeładowany (Jeśli masz problemy, zrestartuj serwer)'
+  holo:
+    create:
+      success: '&6Hologram został utworzony'
+    remove:
+      noHolo: '&4Nie znaleziono hologramów'
+      success: '&6Hologram został usunięty'
+  title:
+    success: '&6Tytuł gracza został zmieniony'
+    reset: '&6Tytuł gracza został zresetowany'
+  version: '&6Wersja pluginu: &b{0}'
+  versionstorage: '&6Metoda zapisu: &b{0}'
+  versionversion: '&6Wersja Minecraft: &b{0}'
+  versionlanguage: '&6Wybrany język: &b{0}'
+  versiononline: '&6Tryb online: &b{0}'
+  versionplayers: '&6Liczba graczy: &b{0}'
+  versionplugins: '&6Integracje: &b{0}'
+  versionconflicts: '&6Potencjalne konflikty: &b{0}'
+  versionnoconflicts: nie wykryto
+  versionextensions: '&6Rozszerzenia: {0}'
+  versionnomanager: '&cManager nie został załadowany'
+  versionnoextensions: '&eBrak'
+  noTeam: '&4To nie jest drużyna'
+  home:
+    success: '&6Zostałeś przeteleportowany do domu tej drużyny'
+    noHome: '&4Ta drużyna nie ma ustawionego domu'
+  anchor:
+    enabled: '&6Wymuszono włączenie kotwicy u gracza'
+    disabled: '&6Wymuszono wyłączenie kotwicy u gracza'
+  setanchor:
+    enabled: '&6Status kotwicy tej drużyny został włączony'
+    disabled: '&6Status kotwicy tej drużyny został wyłączony'
+    noHome: '&4Ta drużyna musi najpierw ustawić dom'
+  name:
+    success: '&6Nazwa drużyny została zmieniona'
+  description:
+    success: '&6Opis drużyny został zmieniony'
+  open:
+    successopen: '&6Ta drużyna jest teraz otwarta'
+    successclose: '&6Ta drużyna jest teraz tylko na zaproszenie'
+  invite:
+    success: '&6Gracz został zaproszony do tej drużyny'
+  create:
+    success: '&6Drużyna została utworzona'
+  join:
+    banned: '&4Ten gracz jest zablokowany w tej drużynie'
+    success: '&6Gracz dołączył do drużyny'
+    notify: '&6Dołączyłeś do drużyny &b{0}'
+    full: '&4Ta drużyna jest pełna'
+  notInTeam: '&6Ten gracz nie może być w drużynie, aby to zrobić'
+  inTeam: '&4Ten gracz nie jest w żadnej drużynie'
+  leave:
+    success: '&6Gracz opuścił drużynę'
+    notify: '&6Opuściłeś tę drużynę'
+  demote:
+    notify: '&6Zostałeś zdegradowany'
+    success: '&6Gracz został zdegradowany'
+    min: '&4Tego gracza nie można już bardziej zdegradować'
+    maxAdmins: '&4Ta drużyna ma już maks. liczbę adminów'
+  promote:
+    max: '&6Ten gracz ma już najwyższą rangę'
+    notify: '&6Zostałeś awansowany'
+    success: '&6Gracz został awansowany'
+    owner: '&6Konfiguracja pozwala na tylko jednego właściciela. Użyj &b/teama setowner
+      <gracz>'
+    maxAdmins: '&4Ta drużyna ma już maks. liczbę adminów'
+    maxOwners: '&4Ta drużyna ma już maks. liczbę właścicieli'
+  setowner:
+    already: '&4Ten gracz jest już właścicielem'
+    nonotify: '&6Nie jesteś już właścicielem drużyny'
+    success: '&6Gracz jest teraz nowym właścicielem drużyny'
+    notify: '&6Jesteś teraz właścicielem swojej drużyny'
+  warps:
+    none: '&4Ta drużyna nie ma ustawionych warpów'
+  setwarp:
+    success: '&6Warp został ustawiony'
+    max: '&6Ta drużyna osiągnęła limit warpów'
+  purge:
+    confirm: '&6Wpisz komendę ponownie w ciągu 10s, aby potwierdzić. &4TEGO NIE DA
+      SIĘ COFNĄĆ - WSZYSTKIE PUNKTY ZOSTANĄ ZRESETOWANE'
+    success: '&6Drużyny zostały wyczyszczone'
+  score:
+    tooSmall: '&4Punkty muszą być większe niż 0'
+    success: '&6Punkty drużyny zostały zmienione'
+  bal:
+    toSmall: '&4Saldo musi być większe niż 0'
+    success: '&6Saldo drużyny zostało zmienione'
+  update: '&4Dostępna jest nowa wersja BetterTeams: https://www.spigotmc.org/resources/better-teams.17129/'
+  disband:
+    success: '&6Drużyna została pomyślnie rozwiązana'
+  color:
+    success: '&6Kolor drużyny został zmieniony'
+  chest:
+    claim:
+      success: '&6Zabezpieczyłeś skrzynię w imieniu drużyny'
+    remove:
+      success: '&6Usunąłeś zabezpieczenie ze skrzyni'
+      notClaimed: '&4Żadna drużyna nie zabezpieczyła tej skrzyni'
+    all:
+      success: '&6Wszystkie zabezpieczenia tej drużyny zostały usunięte'
+    disable:
+      already: '&4Zabezpieczanie skrzyń jest już wyłączone'
+      success: '&6Zabezpieczanie skrzyń zostało wyłączone'
+    disabled:
+      bc: '&6&lWszystkie zabezpieczone skrzynie można teraz otwierać'
+    enable:
+      already: '&4Zabezpieczanie skrzyń jest już włączone'
+      success: '&6Zabezpieczanie skrzyń zostało włączone'
+    enabled:
+      bc: '&6&lWszystkie zabezpieczone skrzynie są teraz zablokowane'
+  teleport:
+    noWorld: '&4Nie znaleziono świata'
+    success: '&6Wszyscy członkowie online tej drużyny zostali przeteleportowani'
+    player:
+      success: '&6Gracz został przeteleportowany'
+    all:
+      success: '&6Wszyscy członkowie online wszystkich drużyn zostali przeteleportowani'
+      home:
+        success: '&6Wszyscy członkowie online wszystkich drużyn posiadających dom
+          zostali przeteleportowani'
+  ally:
+    same: '&4Nie możesz zawrzeć sojuszu drużyny z samą sobą'
+    already: '&4Te drużyny są już sojusznikami'
+    success: '&6Te dwie drużyny są teraz sojusznikami'
+  neutral:
+    same: '&4Nie można wpisać dwa razy tej samej drużyny'
+    not: '&4Te drużyny nie są sojusznikami'
+    success: '&6Te drużyny nie są już sojusznikami'
+  import:
+    fail: '&4Import wiadomości nie powiódł się, sprawdź konsolę'
+    success: '&6Wiadomości zostały pomyślnie zaimportowane'
+  meta:
+    get:
+      noMetaData: '&cTa drużyna nie posiada wpisów metadanych.'
+      allMetaData: '&aMetadane dla tej drużyny: &e{0}'
+      specificMetaData: '&aKlucz metadanych "&e{0}&a" ma wartość: "&e{1}&a"'
+      noexist: '&cPodany klucz metadanych nie istnieje dla tej drużyny.'
+    set:
+      needsValue: '&cMusisz podać wartość dla klucza metadanych.'
+      success: '&aPomyślnie ustawiono klucz metadanych'
+    remove:
+      success: '&aPomyślnie usunięto klucz metadanych "&e{0}&a" z drużyny'
+nametag:
+  syntax: '&6&l{0}&r '
+holo:
+  leaderboard: '&6Ranking'
+  syntax: '&6{0}: &b{1}'
+  msyntax: '&6{0}: &b${1}'
+top:
+  leaderboard: '&6Ranking'
+  syntax: '&b{0}: &6{1} &7({2})'
+  divide: '&f...'
+baltop:
+  leaderboard: '&6Ranking Bogactwa'
+  syntax: '&b{0}: &6{1} &7({2})'
+  divide: '&f...'
+spy:
+  stop: '&6Nie szpiegujesz już wiadomości drużynowych'
+  start: '&6Szpiegujesz teraz wiadomości drużynowe'
+  team: '&7[Szpieg Team] [&b{0}&7]&f{1}&f: {2}'
+  ally: '&7[Szpieg Sojusz] [&d{0}&7]&f{1}&f: {2}'
+uclaim:
+  team: '&4Musisz być w drużynie, aby utworzyć claim'
+  member: '&4Nie możesz opuścić claimu swojej drużyny'
+  kick: '&4Nie możesz wyrzucić członków własnej drużyny z Waszego claimu'
+  ban: '&4Nie możesz zablokować członków własnej drużyny w Waszym claimie'
+  dissolve: '&4Twoja drużyna została rozwiązana, więc claim wygasł'
+help:
+  header: '&6---- &bPomoc BetterTeams &6----'
+  footer: '&6---- &bStrona {0}/{1} - /{2} help <strona> &6----'
+  wrong: '&4Coś poszło nie tak, poinformuj administratora'
+  description: Wyświetl lub zmień opis swojej drużyny
+  ban: Blokuje gracza w Twojej drużynie
+  home: Teleportuje do domu drużyny
+  help: Wyświetla tę stronę pomocy
+  promote: Awansuje gracza w Twojej drużynie
+  demote: Degraduje gracza w Twojej drużynie
+  unban: Odblokowuje gracza w Twojej drużynie
+  kick: Wyrzuca gracza z Twojej drużyny
+  leave: Opuszcza obecną drużynę
+  chat: Wysyła wiadomość tylko do członków drużyny
+  name: Wyświetla lub zmienia nazwę Twojej drużyny
+  sethome: Ustawia dom Twojej drużyny
+  create: Tworzy nową drużynę
+  invite: Zaprasza gracza do drużyny
+  disband: Rozwiązuje obecną drużynę
+  open: Przełącza tryb otwartości drużyny
+  info: Wyświetla informacje o graczu/drużynie
+  color: Zmienia kolor drużyny
+  deposit: Wpłaca pieniądze do banku drużyny
+  bal: Wyświetla saldo drużyny
+  withdraw: Wypłaca pieniądze z banku drużyny
+  title: Zmienia tytuł gracza w drużynie
+  top: Wyświetla ranking najlepszych drużyn
+  rank: Wyświetla rangę drużyny
+  join: Dołącza do określonej drużyny
+  delhome: Usuwa dom Twojej drużyny
+  ally: Służy do proszenia o sojusz
+  neutral: Usuwa sojuszników lub odrzuca prośby
+  allychat: Wysyła wiadomość tylko do sojuszników
+  anchor: Przełącza odradzanie się w domu drużyny
+  setanchor: Ustawia czy dom drużyny ma być punktem odrodzenia
+  setwarp: Ustawia warp dla teamu
+  warps: Pokazuje listę warpów w teamie
+  delwarp: Usuwa warpa teamowego
+  chest:
+    help: Przeglądaj tą stronę pomocy
+    removeall: Usuń wszystkie zaclaimowane skrzynie (przydatne gdy zapomnisz o niektórych)
+    claim: Zaclaimuj skrzynie na której stoisz
+    remove: Usuwa claima twojej drużyny ze skrzyni na której stoisz
+  list: Pokazuje listę wszystkich teamów
+  warp: Teleportuje do warpa teamowego
+  removeall: Usuwa wszystkie zabezpieczone skrzynki
+  claim: Zabezpiecza skrzynkę na której stoisz
+  remove: Odbezpiecza skrzynkę na której stoisz
+  chatspy: Szpieguj wiadomości teamowe
+  purge: Resetuj punkty wszystkich teamów
+  version: Wersja pluginu
+  score: ''
+  reload: Reloadzik configu
+  holo: ''
+  setowner: Ustawia nowego założyciela teamu
+  echest: View your teams ender chest
+helpArg:
+  delhome: ''
+  echest: ''
+  color: <kod koloru>
+  allychat: '[wiadomość]'
+  description: '[opis]'
+  setwarp: <nazwa> [hasło]
+  title: '[gracz/ja] [tytuł]'
+  bal: ''
+  ban: <gracz>
+  promote: <gracz>
+  warps: ''
+  top: ''
+  ally: <drużyna>
+  rankup: ''
+  leave: ''
+  sethome: ''
+  create: <nazwa> [tag]
+  rank: '[drużyna]'
+  join: <drużyna>
+  tag: '[tag]'
+  disband: ''
+  info: '[drużyna/gracz]'
+  delwarp: <nazwa> [hasło]
+  chest:
+    help: ''
+    removeall: ''
+    claim: ''
+    remove: ''
+  neutral: <drużyna>
+  pvp: ''
+  baltop: ''
+  list: '[strona]'
+  home: ''
+  help: ''
+  unban: <gracz>
+  demote: <gracz>
+  kick: <gracz>
+  chat: '[wiadomość]'
+  name: <nazwa>
+  deposit: <kwota>
+  invite: <gracz>
+  open: ''
+  warp: <nazwa>
+  withdraw: <kwota>
+  anchor: ''
+  setanchor: <true/false>
+command:
+  create: stworz
+  leave: opusc
+  disband: rozwiaz
+  description: opis
+  invite: zapros
+  join: dolacz
+  name: nazwa
+  open: otwarta
+  info: info
+  kick: wyrzuc
+  promote: awansuj
+  demote: degraduj
+  home: dom
+  sethome: ustawdom
+  ban: zablokuj
+  unban: odblokuj
+  chat: czat
+  color: kolor
+  title: tytul
+  top: top
+  baltop: baltop
+  rank: ranga
+  delhome: usundom
+  ally: sojusz
+  neutral: neutralny
+  allychat: czatsojuszu
+  list: lista
+  warp: warp
+  setwarp: ustawwarp
+  delwarp: usunwarp
+  warps: warpy
+  echest: echest
+  rankup: awans
+  tag: tag
+  pvp: pvp
+  claim: claim
+  remove: usun
+  removeall: usunwszystkie
+  chest: skrzynia
+  reload: przeladuj
+  chatspy: szpieg
+  version: wersja
+  purge: czysc
+  setrank: ustawrange
+  add: dodaj
+  set: ustaw
+  score: punkty
+  enableclaims: wlaczclaimy
+  disableclaims: wylaczclaimy
+  anchor: kotwica
+  setanchor: ustawkotwice
+  check: sprawdz
+  debug: debug
+  teleport: teleportuj
+  importmessages: importujwiadomosci
+  money: pieniadze
+  meta: meta
+  get: pobierz
+  holo: holo
+  deposit: wplac
+  bal: saldo
+  withdraw: wyplac
+  setowner: zalozyciel
+  help: pomoc
+webhook:
+  unknownPlayer: nieznany gracz
+  create:
+    title: Nowa drużyna utworzona - {0}
+    description: Drużyna o nazwie **{0}** została utworzona przez **{1}**
+  disband:
+    title: Drużyna rozwiązana - {0}
+    description: Drużyna o nazwie **{0}** została rozwiązana przez **{1}**
+  leave:
+    title: Członek opuścił drużynę - {0}
+    description: Gracz o nazwie **{0}** opuścił drużynę **{1}**
+  rename:
+    title: Zmiana nazwy drużyny - {0}
+    description: Drużyna **{0}** zmieniła nazwę na **{1}** (zmiana przez **{2}**)
+  chat:
+    title: 'Wiadomość drużynowa: {0} [{1}]'
+    description: '{0}'

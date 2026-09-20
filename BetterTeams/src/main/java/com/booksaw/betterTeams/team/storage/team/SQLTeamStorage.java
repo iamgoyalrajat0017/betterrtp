@@ -1,0 +1,423 @@
+package com.booksaw.betterTeams.team.storage.team;
+
+import com.booksaw.betterTeams.*;
+import com.booksaw.betterTeams.database.TableName;
+import com.booksaw.betterTeams.team.meta.TeamMeta;
+import com.booksaw.betterTeams.team.storage.storageManager.SQLStorageManager;
+import org.bukkit.Bukkit;
+import org.bukkit.inventory.Inventory;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+
+public class SQLTeamStorage extends TeamStorage {
+
+	private final SQLStorageManager storageManager;
+
+	public SQLTeamStorage(SQLStorageManager storageManager, Team team) {
+		super(team);
+		this.storageManager = storageManager;
+	}
+
+	public void invalidateCache() {
+		if (Main.placeholderAPI) {
+			Main.plugin.getTeamPlaceholders().invalidateCache();
+		}
+	}
+
+	private String getCondition() {
+		return "teamID = ?";
+	}
+
+	private String getTeamId() {
+		return team.getID().toString();
+	}
+
+	@Override
+	protected void setValue(String location, TeamStorageType storageType, Object value) {
+		storageManager.getDatabase().updateRecordWhere(TableName.TEAM, location, value,
+				getCondition(), getTeamId());
+	}
+
+	@Override
+	public String getString(String reference) {
+		return storageManager.getDatabase()
+				.getResult(reference, TableName.TEAM, getCondition(), getTeamId());
+	}
+
+	@Override
+	public boolean getBoolean(String reference) {
+		String result = storageManager.getDatabase()
+				.getResult(reference, TableName.TEAM, getCondition(), getTeamId());
+		if (result.equals("1")) {
+			return true;
+		} else if (result.equals("0")) {
+			return false;
+		}
+		return Boolean.parseBoolean(result);
+	}
+
+	@Override
+	public double getDouble(String reference) {
+		return Double.parseDouble(storageManager.getDatabase()
+				.getResult(reference, TableName.TEAM, getCondition(), getTeamId()));
+	}
+
+	@Override
+	public int getInt(String reference) {
+		return Integer.parseInt(storageManager.getDatabase()
+				.getResult(reference, TableName.TEAM, getCondition(), getTeamId()));
+	}
+
+	@Override
+	public List<TeamPlayer> getPlayerList() {
+		List<TeamPlayer> toReturn = new ArrayList<>();
+
+		try (PreparedStatement ps = storageManager.getDatabase()
+				.selectWhere("*", TableName.PLAYERS, getCondition(), getTeamId())) {
+			ResultSet result = ps.executeQuery();
+			if (!result.first()) {
+				return toReturn;
+			}
+			do {
+
+				toReturn.add(
+						new TeamPlayer(Bukkit.getOfflinePlayer(UUID.fromString(result.getString("playerUUID"))),
+								PlayerRank.getRank((result.getInt("playerRank"))), result.getString("title"),
+								result.getBoolean("anchor")));
+
+			} while (result.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return toReturn;
+	}
+
+	@Override
+	public List<UUID> getAnchoredPlayerList() {
+		List<UUID> toReturn = new ArrayList<>();
+
+		try (PreparedStatement ps = storageManager.getDatabase()
+				.selectWhere("*", TableName.PLAYERS, getCondition(), getTeamId())) {
+			ResultSet result = ps.executeQuery();
+			if (!result.first()) {
+				return toReturn;
+			}
+			do {
+				if (result.getBoolean("anchor")) {
+					toReturn.add(UUID.fromString(result.getString("playerUUID")));
+				}
+			} while (result.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return toReturn;
+	}
+
+	@Override
+	public List<String> getBanList() {
+
+		List<String> toReturn = new ArrayList<>();
+
+		try (PreparedStatement ps = storageManager.getDatabase()
+				.selectWhere("*", TableName.BANS, getCondition(), getTeamId())) {
+			ResultSet result = ps.executeQuery();
+			if (!result.first()) {
+				return toReturn;
+			}
+			do {
+
+				toReturn.add(result.getString("playerUUID"));
+
+			} while (result.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return toReturn;
+	}
+
+	private List<String> getTeamList(final TableName table) {
+
+		List<String> toReturn = new ArrayList<>();
+
+		try (PreparedStatement ps = storageManager.getDatabase().selectWhere("*", table,
+				"team1ID = ? OR team2ID = ?", getTeamId(), getTeamId())) {
+			ResultSet result = ps.executeQuery();
+			if (!result.first()) {
+				return toReturn;
+			}
+			do {
+				String t1 = result.getString("team1ID");
+				String toAdd = (t1.equals(team.getID().toString())) ? result.getString("team2ID") : t1;
+				if (!toReturn.contains(toAdd)) {
+					toReturn.add(toAdd);
+				}
+
+			} while (result.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return toReturn;
+	}
+
+	@Override
+	public List<String> getAllyList() {
+		return getTeamList(TableName.ALLIES);
+	}
+
+	@Override
+	public List<String> getAllyRequestList() {
+
+		List<String> toReturn = new ArrayList<>();
+
+		try (PreparedStatement ps = storageManager.getDatabase()
+				.selectWhere("*", TableName.ALLYREQUESTS,
+						"receivingTeamID = ?", getTeamId())) {
+
+			ResultSet result = ps.executeQuery();
+			if (!result.first()) {
+				return toReturn;
+			}
+			do {
+				toReturn.add(result.getString("requestingTeamID"));
+
+			} while (result.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return toReturn;
+	}
+
+	@Override
+	public void getEchestContents(Inventory inventory) {
+
+		String result = storageManager.getDatabase()
+				.getResult("echest", TableName.TEAM, getCondition(), getTeamId());
+		if (result == null || result.isEmpty()) {
+			return;
+		}
+
+		Utils.deserializeIntoInventory(inventory, result);
+	}
+
+	@Override
+	public void setEchestContents(Inventory inventory) {
+		String serial = Utils.serializeInventory(inventory);
+		invalidateCache();
+		storageManager.getDatabase().executeStatement(
+				"UPDATE %s SET echest = ? WHERE %s".formatted(TableName.TEAM.toString(), getCondition()),
+				serial, getTeamId());
+	}
+
+	@Override
+	public List<String> getWarps() {
+
+		List<String> toReturn = new ArrayList<>();
+
+		try (PreparedStatement ps = storageManager.getDatabase()
+				.selectWhere("*", TableName.WARPS, getCondition(), getTeamId())) {
+
+			ResultSet result = ps.executeQuery();
+			if (!result.first()) {
+				return toReturn;
+			}
+			do {
+
+				toReturn.add(result.getString("warpInfo"));
+
+			} while (result.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return toReturn;
+	}
+
+	@Override
+	public List<String> getClaimedChests() {
+
+		List<String> toReturn = new ArrayList<>();
+
+		try (PreparedStatement ps = storageManager.getDatabase()
+				.selectWhere("*", TableName.CHESTCLAIMS, getCondition(), getTeamId())) {
+
+			ResultSet result = ps.executeQuery();
+			if (!result.first()) {
+				return toReturn;
+			}
+			do {
+				toReturn.add(result.getString("chestLoc"));
+
+			} while (result.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return toReturn;
+	}
+
+	@Override
+	public void addBan(UUID component) {
+		invalidateCache();
+		storageManager.getDatabase().insertRecord(TableName.BANS, "playerUUID, teamID",
+				component.toString(), getTeamId());
+	}
+
+	@Override
+	public void removeBan(UUID component) {
+		invalidateCache();
+		storageManager.getDatabase()
+				.deleteRecord(TableName.BANS, "playerUUID = ?", component.toString());
+	}
+
+	@Override
+	public void addAlly(UUID ally) {
+		invalidateCache();
+		storageManager.getDatabase().insertRecord(TableName.ALLIES, "team1ID, team2ID",
+				getTeamId(), ally.toString());
+	}
+
+	@Override
+	public void removeAlly(UUID ally) {
+		invalidateCache();
+		storageManager.getDatabase().deleteRecord(TableName.ALLIES,
+				"(team1ID = ? AND team2ID = ?) OR (team1ID = ? AND team2ID = ?)",
+				getTeamId(), ally.toString(), ally.toString(), getTeamId());
+	}
+
+	@Override
+	public void addAllyRequest(UUID requesting) {
+		invalidateCache();
+		storageManager.getDatabase()
+				.insertRecord(TableName.ALLYREQUESTS, "receivingTeamID, requestingTeamID",
+						getTeamId(), requesting.toString());
+	}
+
+	@Override
+	public void removeAllyRequest(UUID requesting) {
+		invalidateCache();
+		storageManager.getDatabase().deleteRecord(TableName.ALLYREQUESTS,
+				"receivingTeamID = ? AND requestingTeamID = ?", getTeamId(), requesting.toString());
+	}
+
+	@Override
+	public void addWarp(Warp component) {
+		invalidateCache();
+		storageManager.getDatabase().insertRecord(TableName.WARPS, "teamID, warpInfo",
+				getTeamId(), component.toString());
+	}
+
+	@Override
+	public void removeWarp(Warp component) {
+		invalidateCache();
+		storageManager.getDatabase().deleteRecord(TableName.WARPS,
+				getCondition() + " AND warpInfo = ?", getTeamId(), component.toString());
+	}
+
+	@Override
+	public void promotePlayer(TeamPlayer promotePlayer) {
+		changeRank(promotePlayer);
+	}
+
+	@Override
+	public void demotePlayer(TeamPlayer demotePlayer) {
+		changeRank(demotePlayer);
+	}
+
+	private void changeRank(TeamPlayer player) {
+		invalidateCache();
+		storageManager.getDatabase()
+				.updateRecordWhere(TableName.PLAYERS, "playerRank", player.getRank().value,
+						"playerUUID = ?", player.getPlayer().getUniqueId().toString());
+
+	}
+
+	@Override
+	public void setTitle(TeamPlayer player) {
+		invalidateCache();
+		storageManager.getDatabase().updateRecordWhere(TableName.PLAYERS, "title", player.getTitle(),
+				"playerUUID = ?", player.getPlayer().getUniqueId().toString());
+	}
+
+	@Override
+	public void setAnchor(TeamPlayer player, boolean anchor) {
+		invalidateCache();
+		storageManager.getDatabase().updateRecordWhere(TableName.PLAYERS, "anchor", anchor,
+				"playerUUID = ?", player.getPlayer().getUniqueId().toString());
+	}
+
+	@Override
+	public void setPlayerList(List<String> players) {
+		// not needed
+	}
+
+	@Override
+	public void setAnchoredPlayerList(List<String> players) {
+		// not needed
+	}
+
+	@Override
+	public void setBanList(List<String> players) {
+		// not needed
+	}
+
+	@Override
+	public void setAllyList(List<String> players) {
+		// not needed
+	}
+
+	@Override
+	public void setAllyRequestList(List<String> players) {
+		// not needed
+	}
+
+	@Override
+	public void setWarps(List<String> warps) {
+		// not needed
+	}
+
+	@Override
+	public void setClaimedChests(List<String> chests) {
+		// not needed
+	}
+
+	@Override
+	public Map<String, String> getRawMeta() {
+		Map<String, String> rawMeta = new HashMap<>();
+		String condition = "teamID = ?";
+		try (PreparedStatement ps = storageManager.getDatabase()
+				.selectWhere("*", TableName.TEAM_META, condition, getTeamId())) {
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				rawMeta.put(rs.getString("metaKey"), rs.getString("metaValue"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rawMeta;
+	}
+
+	@Override
+	public void saveMeta(TeamMeta meta) {
+		String teamId = team.getID().toString();
+
+		storageManager.getDatabase().deleteRecord(TableName.TEAM_META, "teamID = ?", teamId);
+		Map<String, String> serializedMeta = meta.getSerialized();
+		if (serializedMeta.isEmpty()) {
+			return;
+		}
+
+		for (Map.Entry<String, String> entry : serializedMeta.entrySet()) {
+			String columns = "teamID, metaKey, metaValue";
+			storageManager.getDatabase()
+					.insertRecord(TableName.TEAM_META, columns, teamId, entry.getKey(), entry.getValue());
+		}
+	}
+}
