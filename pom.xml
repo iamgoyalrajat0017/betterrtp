@@ -51,7 +51,7 @@
         <!-- Spigot API -->
         <spigot.version>1.21-R0.1-SNAPSHOT</spigot.version>
         <bstats.version>3.2.1</bstats.version>
-        <adventure.version>4.26.1</adventure.version>
+        <adventure.version>5.2.0</adventure.version>
 
         <!-- Spigot dependencies -->
         <placeholder.api.version>2.12.2</placeholder.api.version>
